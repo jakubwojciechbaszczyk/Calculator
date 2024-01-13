@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".calculator.KeyboardFragment">
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.example.kalkulator.calculator.OnClickHandlerInterface" />
+
+        <variable
+            name="result"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/guide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/textViewItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end|bottom"
+                android:inputType="textMultiLine"
+                android:isScrollContainer="true"
+                android:scrollbars="vertical"
+                android:text="@{result}"
+                android:textSize="48sp" />
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guide">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/bin"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:backgroundTint="@color/purple_500"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:src="@drawable/two_path_80" />
+
+                    <ImageButton
+                        android:id="@+id/okt"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:backgroundTint="@color/purple_500"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:src="@drawable/eight_path_80"
+                        android:text="/" />
+
+                    <ImageButton
+                        android:id="@+id/double_okt"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:backgroundTint="@color/purple_500"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:src="@drawable/h_path_80" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/num"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="num" />
+
+                    <Button
+                        android:id="@+id/divide"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="/" />
+
+                    <Button
+                        android:id="@+id/multiply"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="*" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/seven"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="7" />
+
+                    <Button
+                        android:id="@+id/eight"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="8" />
+
+                    <Button
+                        android:id="@+id/nine"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="9" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/four"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="4" />
+
+                    <Button
+                        android:id="@+id/five"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="5" />
+
+                    <Button
+                        android:id="@+id/six"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="6" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_ones"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/one"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="1" />
+
+                    <Button
+                        android:id="@+id/two"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="2" />
+
+                    <Button
+                        android:id="@+id/three"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="3" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/zero"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/dot"
+                        style="@style/buttonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                        android:text="." />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/minus"
+                    style="@style/buttonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_shape"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                    android:text="-" />
+
+                <Button
+                    android:id="@+id/plus"
+                    style="@style/buttonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/button_shape"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                    android:text="+" />
+
+                <Button
+                    android:id="@+id/equals"
+                    style="@style/buttonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/button_shape"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{(v) -> clickHandler.onClick(v)}"
+                    android:text="ENT" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
